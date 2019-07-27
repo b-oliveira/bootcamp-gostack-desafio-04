@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import PostItem from "./PostItem";
+
 class PostList extends Component {
   state = {
     posts: [
@@ -44,7 +46,17 @@ class PostList extends Component {
     ]
   };
 
-  render() {}
+  render() {
+    const { posts } = this.state;
+
+    return (
+      <div className="postlist">
+        {posts.map(post => (
+          <PostItem key={post.id} {...post} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default PostList;
